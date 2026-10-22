@@ -16,7 +16,7 @@ long duration;
 int distance;
 
 // Change: 1 = Race  2 = Recycle Run
-int mode = 1;
+int mode = 3;
 
 void setup() {
   // Servo Setup
@@ -61,6 +61,14 @@ void reverse(){
   analogWrite(ENA, 100);
 }
 
+void stop(){
+  Serial.print("stop");
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  analogWrite(ENA, 0);
+  
+}
+
 // Ultra Sonic Sensor
 void sensor(){
   digitalWrite(trig,LOW);
@@ -101,6 +109,17 @@ void Recycle(){
   
 }
 
+void Prototype(){
+    forward();
+    delay(2000);
+    reverse();
+    delay(2000);
+    stop();
+    posA();
+    delay(1000);
+    posB(1000);
+}
+
 void loop() {
   switch (mode){
     case 1:
@@ -109,6 +128,10 @@ void loop() {
     
     case 2:
     Recycle();
+    break;
+
+    case 3:
+    Prototype();
     break;
     
     default:
