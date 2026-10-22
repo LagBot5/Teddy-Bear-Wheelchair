@@ -10,7 +10,7 @@ const int IN2 = 3;
 const int ENA = 10;
 
 // Ultra Sonic Sensors Pins
-const int trig = 13
+const int trig = 13;
 const int echo = 12;
 long duration;
 int distance;
@@ -27,11 +27,13 @@ void setup() {
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
   pinMode(ENA, OUTPUT);
+  pinMode(5, OUTPUT);
     
   // Ultrasonic Sensor maybe
   pinMode(echo, INPUT);
   pinMode(trig, OUTPUT);
     
+  forward();
   Serial.begin(9600);
 }
 
@@ -115,9 +117,9 @@ void Prototype(){
     reverse();
     delay(2000);
     stop();
-    posA();
+    POSA();
     delay(1000);
-    posB(1000);
+    POSB();
 }
 
 void loop() {
@@ -132,6 +134,10 @@ void loop() {
 
     case 3:
     Prototype();
+    digitalWrite(5, HIGH);  // change state of the LED by setting the pin to the HIGH voltage level
+    delay(1000);                      // wait for a second
+    digitalWrite(5, LOW);   // change state of the LED by setting the pin to the LOW voltage level
+    delay(1000); 
     break;
     
     default:
