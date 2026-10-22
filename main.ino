@@ -1,7 +1,7 @@
 #include <Servo.h>
 
 // Servo Pin
-const int SERVO_PIN = 8;
+const int SERVO_PIN = 3;
 Servo myServo;
 
 // Motor Pins
@@ -10,7 +10,7 @@ const int IN2 = 7;
 const int ENA = 11;
 
 // Ultra Sonic Sensors Pins
-const int trig = 13;
+const int trig = 1;
 const int echo = 12;
 long duration;
 int distance;
