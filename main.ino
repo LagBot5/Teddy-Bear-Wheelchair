@@ -1,13 +1,13 @@
 #include <Servo.h>
 
 // Servo Pin
-const int SERVO_PIN = 9;
+const int SERVO_PIN = 8;
 Servo myServo;
 
 // Motor Pins
-const int IN1 = 2;
-const int IN2 = 3;
-const int ENA = 10;
+const int IN1 = 6;
+const int IN2 = 7;
+const int ENA = 11;
 
 // Ultra Sonic Sensors Pins
 const int trig = 13;
@@ -32,19 +32,16 @@ void setup() {
   // Ultrasonic Sensor maybe
   pinMode(echo, INPUT);
   pinMode(trig, OUTPUT);
-    
-  forward();
+  
   Serial.begin(9600);
 }
 
 // Servo Code Blocks
 void POSA(){
-  Serial.print("POSA ");
   myServo.write(90);
 }
 
 void POSB(){
-  Serial.print("POSB ");
   myServo.write(0);
 }
 
@@ -52,7 +49,7 @@ void POSB(){
 void forward(){
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
-  analogWrite(ENA, 100);
+  analogWrite(ENA, 255);
   Serial.print("forward");
 }
 
@@ -60,7 +57,7 @@ void reverse(){
   Serial.print("reverse");
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
-  analogWrite(ENA, 100);
+  analogWrite(ENA, 255);
 }
 
 void stop(){
@@ -120,6 +117,7 @@ void Prototype(){
     POSA();
     delay(1000);
     POSB();
+    delay(1000);
 }
 
 void loop() {
@@ -133,8 +131,8 @@ void loop() {
     break;
 
     case 3:
-    Prototype();
     digitalWrite(5, HIGH);  // change state of the LED by setting the pin to the HIGH voltage level
+    Prototype();
     delay(1000);                      // wait for a second
     digitalWrite(5, LOW);   // change state of the LED by setting the pin to the LOW voltage level
     delay(1000); 
