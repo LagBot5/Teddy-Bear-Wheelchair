@@ -11,7 +11,7 @@ const int ENA = 10;
 
 // Ultra Sonic Sensors Pins
 const int trig = 13
-const intecho = 12;
+const int echo = 12;
 long duration;
 int distance;
 
