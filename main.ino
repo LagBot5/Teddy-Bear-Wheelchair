@@ -1,7 +1,7 @@
 #include <Servo.h>
 
 // Servo Pin
-const int SERVO_PIN = 3;
+const int SERVO_PIN = 5;
 Servo myServo;
 
 // Motor Pins
@@ -27,7 +27,7 @@ void setup() {
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
   pinMode(ENA, OUTPUT);
-  pinMode(5, OUTPUT);
+  pinMode(9, OUTPUT);
     
   // Ultrasonic Sensor maybe
   pinMode(echo, INPUT);
@@ -39,10 +39,12 @@ void setup() {
 // Servo Code Blocks
 void POSA(){
   myServo.write(90);
+  Serial.print("A ");
 }
 
 void POSB(){
   myServo.write(0);
+  Serial.print("B ");
 }
 
 // Motor Code Blocks
@@ -54,7 +56,7 @@ void forward(){
 }
 
 void reverse(){
-  Serial.print("reverse");
+  Serial.print("reverse ");
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
   analogWrite(ENA, 255);
@@ -110,14 +112,14 @@ void Recycle(){
 
 void Prototype(){
     forward();
-    delay(2000);
-    reverse();
-    delay(2000);
-    stop();
-    POSA();
-    delay(1000);
-    POSB();
-    delay(1000);
+    //delay(2000);
+    //reverse();
+    //delay(2000);
+    //stop();
+    //POSA();
+    //delay(1000);
+    //POSB();
+    //delay(1000);
 }
 
 void loop() {
@@ -133,9 +135,9 @@ void loop() {
     case 3:
     digitalWrite(5, HIGH);  // change state of the LED by setting the pin to the HIGH voltage level
     Prototype();
-    delay(1000);                      // wait for a second
+    delay(2000);                      // wait for a second
     digitalWrite(5, LOW);   // change state of the LED by setting the pin to the LOW voltage level
-    delay(1000); 
+    delay(2000); 
     break;
     
     default:
