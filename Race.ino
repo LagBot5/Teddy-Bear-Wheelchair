@@ -35,11 +35,11 @@ void stop(){
 void loop() {
   // put your main code here, to run repeatedly:
     forward();
-    delay(4500);
+    delay(5000);
     stop();
     delay(500);
     reverse();
-    delay(5500);
+    delay(5000);
     stop();
     delay(10000);
 }
