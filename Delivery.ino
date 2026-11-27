@@ -55,7 +55,7 @@ void POSB(){
 void loop() {
   // put your main code here, to run repeatedly:
   forward();
-
+  delay(7000);
 
   //Serial.print("distance: ");
   //Serial.print(distance);
